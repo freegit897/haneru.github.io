@@ -1,0 +1,66 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* CSSアニメーションの設定 */
+    .poyooon {
+      -webkit-animation: poyooon 0.9s linear 0s 1;
+      animation: poyooon 0.9s linear 0s 1;
+    }
+    img{
+        position: absolute;
+        top:0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    @-webkit-keyframes poyooon {
+      0%   { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
+      10%  { -webkit-transform: scale(1.1, 0.9) translate(0%, 5%); }
+      40%  { -webkit-transform: scale(1.2, 0.8) translate(0%, 15%); }
+      50%  { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
+      60%  { -webkit-transform: scale(0.9, 1.2) translate(0%, -100%); }
+      75%  { -webkit-transform: scale(0.9, 1.2) translate(0%, -20%); }
+      85%  { -webkit-transform: scale(1.2, 0.8) translate(0%, 15%); }
+      100% { -webkit-transform: scale(1.0, 1.0) translate(0%, 0%); }
+    }
+    @keyframes poyooon {
+      0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+      10%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+      40%  { transform: scale(1.2, 0.8) translate(0%, 15%); }
+      50%  { transform: scale(1.0, 1.0) translate(0%, 0%); }
+      60%  { transform: scale(0.9, 1.2) translate(0%, -100%); }
+      75%  { transform: scale(0.9, 1.2) translate(0%, -20%); }
+      85%  { transform: scale(1.2, 0.8) translate(0%, 15%); }
+      100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+    }
+  </style>
+ <script>
+    // CSSアニメーションを間隔を空けてループ再生させる処理
+    function looopAnimation(id, className, delay) {
+    var element = document.getElementById(id);
+    element.addEventListener("animationend", listener);
+    
+    function listener(event) {
+    event.target.classList.remove(className);
+    setTimeout(playAnimation, delay);
+    }
+    
+    function playAnimation() {
+    element.classList.add(className);
+    }
+    }
+    </script>
+</head>
+<body>
+  <div class="shadow"></div>
+  <img id="mitarashi" class="poyooon" src="https://cdn-ak.f.st-hatena.com/images/fotolife/d/dnobitasan/20240413/20240413091631.png" width="200" height="200">
+  <script>
+    // ID値「mitarashi」に対してCSSアニメ―ション「poyooon」を600ミリ秒の間隔を空けてループ再生
+    looopAnimation("mitarashi", "poyooon", 600);
+  </script>
+</body>
+</html>
